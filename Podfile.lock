@@ -1,0 +1,24 @@
+PODS:
+  - iCarousel (1.8.3)
+  - ProgressHUD (14.1.1)
+  - SkeletonView (1.30.4)
+
+DEPENDENCIES:
+  - iCarousel
+  - ProgressHUD
+  - SkeletonView
+
+SPEC REPOS:
+  trunk:
+    - iCarousel
+    - ProgressHUD
+    - SkeletonView
+
+SPEC CHECKSUMS:
+  iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
+  ProgressHUD: abb9136ae23c85204236828562cb9a8ec98efb44
+  SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
+
+PODFILE CHECKSUM: b293c65a634d43571b4930fae863bfdb76eea322
+
+COCOAPODS: 1.12.1
