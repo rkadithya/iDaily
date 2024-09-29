@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4D123459BB663E1A696E675E /* Pods_Api.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9673143FEC448E3412EA9E /* Pods_Api.framework */; };
 		8432FE0E2C50896500352431 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FE0C2C50896500352431 /* ArticleTableViewCell.swift */; };
+		847144CD2CA8F8FC0075C0F8 /* CategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847144CC2CA8F8FC0075C0F8 /* CategorySelectionViewController.swift */; };
+		847144CF2CA9706A0075C0F8 /* CatergoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847144CE2CA9706A0075C0F8 /* CatergoryCollectionViewCell.swift */; };
+		847144D12CA9752F0075C0F8 /* Catergory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847144D02CA9752F0075C0F8 /* Catergory.swift */; };
 		8472DE152C59019C004F26D1 /* NewsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472DE142C59019C004F26D1 /* NewsDetailsViewController.swift */; };
 		8472DE172C593761004F26D1 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472DE162C593761004F26D1 /* CustomTabBarController.swift */; };
 		848C69ED2C54D9C400CF3416 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 848C69EC2C54D9C400CF3416 /* Fonts */; };
@@ -60,6 +63,9 @@
 /* Begin PBXFileReference section */
 		1D9673143FEC448E3412EA9E /* Pods_Api.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Api.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8432FE0C2C50896500352431 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
+		847144CC2CA8F8FC0075C0F8 /* CategorySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionViewController.swift; sourceTree = "<group>"; };
+		847144CE2CA9706A0075C0F8 /* CatergoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatergoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		847144D02CA9752F0075C0F8 /* Catergory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catergory.swift; sourceTree = "<group>"; };
 		8472DE142C59019C004F26D1 /* NewsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsViewController.swift; sourceTree = "<group>"; };
 		8472DE162C593761004F26D1 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		848C69EC2C54D9C400CF3416 /* Fonts */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Fonts; path = Api/Fonts; sourceTree = SOURCE_ROOT; };
@@ -210,6 +216,9 @@
 				8432FE0C2C50896500352431 /* ArticleTableViewCell.swift */,
 				8472DE142C59019C004F26D1 /* NewsDetailsViewController.swift */,
 				8472DE162C593761004F26D1 /* CustomTabBarController.swift */,
+				847144CC2CA8F8FC0075C0F8 /* CategorySelectionViewController.swift */,
+				847144CE2CA9706A0075C0F8 /* CatergoryCollectionViewCell.swift */,
+				847144D02CA9752F0075C0F8 /* Catergory.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -375,11 +384,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847144D12CA9752F0075C0F8 /* Catergory.swift in Sources */,
 				8472DE152C59019C004F26D1 /* NewsDetailsViewController.swift in Sources */,
+				847144CF2CA9706A0075C0F8 /* CatergoryCollectionViewCell.swift in Sources */,
 				8432FE0E2C50896500352431 /* ArticleTableViewCell.swift in Sources */,
 				8472DE172C593761004F26D1 /* CustomTabBarController.swift in Sources */,
 				84B1B5CE2C49EA94004F9DA2 /* ViewController.swift in Sources */,
 				84B1B5CA2C49EA94004F9DA2 /* AppDelegate.swift in Sources */,
+				847144CD2CA8F8FC0075C0F8 /* CategorySelectionViewController.swift in Sources */,
 				84B1B5CC2C49EA94004F9DA2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

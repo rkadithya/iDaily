@@ -33,12 +33,36 @@ class ViewController: UIViewController, UITableViewDelegate, SkeletonTableViewDa
     @IBOutlet weak var tabar: UITabBar!
     @IBOutlet weak var carouselView: iCarousel!
     @IBOutlet weak var tblNews: UITableView!
+    @IBOutlet weak var lblLatestUpdates:UILabel!
+    
+    @IBOutlet weak var btnNavCategoryView: UIImageView!
+    let headerView : UIView = {
+        let headerView = UIView()
+        
+        return headerView
+    }()
+    
+    let headerLabel : UILabel = {
+        let label = UILabel()
+        label.text = "Latest Updates"
+        label.font = UIFont(name: "Rubik Bold Italic", size: 19)
+        
+        label.textColor = .black
+        return label
+    }()
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        headerView.frame = CGRect(x: 0, y: 0, width: tblNews.frame.width, height: 100)
+        headerLabel.frame = CGRect(x: 25, y: -5, width: headerView.frame.width - 20, height: headerView.frame.height/2 - 10)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openProfile(_:)))
+        btnNavCategoryView.addGestureRecognizer(tapGesture)
         images = [
             UIImage(named: "bannerImage1"),
             UIImage(named: "bannerImage2"),
@@ -55,17 +79,28 @@ class ViewController: UIViewController, UITableViewDelegate, SkeletonTableViewDa
         carouselView.layer.masksToBounds = true
         tblNews.rowHeight = 250
         tblNews.estimatedRowHeight = 250
-        self.tblNews.indicatorStyle = .black // This is the default style, you can also use .black or .white
+        self.tblNews.indicatorStyle = .black
+        
+        
+        
+        // This is the default style, you can also use .black or .white
 //https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=a7035a863f53470f8c10f791c26082d5
         let firstItem = UITabBarItem(title: "", image: UIImage(named: "globe"), selectedImage: UIImage(named: "globeSelected"))
         let secondItem = UITabBarItem(title: "", image: UIImage(named: "coding"), selectedImage: UIImage(named: "codingSelected"))
 
                // Set the items to the tab bar
                tabBar.items = [firstItem, secondItem]
+        
+        tblNews.addSubview(headerView)
+        headerView.addSubview(headerLabel)
     }
+    
+    
     
     @objc func openProfile(_ sender:UITapGestureRecognizer){
         
+        let vc = CategorySelectionViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     func carousel(_ carousel: iCarousel, valueFor option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
         return 1.1
@@ -175,6 +210,19 @@ class ViewController: UIViewController, UITableViewDelegate, SkeletonTableViewDa
                 print("Invalid URL or nil: \(String(describing: news.url))")
             }
         }
+    
+    
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+            print("Selected item: \(item.title ?? "")")
+        navigateToCategorySelection()
+        }
+    
+    
+    func navigateToCategorySelection(){
+        let vc = CategorySelectionViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func getResponse() {
         DispatchQueue.main.async {
             ProgressHUD.animate()
@@ -182,6 +230,8 @@ class ViewController: UIViewController, UITableViewDelegate, SkeletonTableViewDa
             ProgressHUD.colorBackground = .cyan
             ProgressHUD.animationType = .ballVerticalBounce
         }
+        
+        
         
         var request = URLRequest(url: URL(string: "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=a7035a863f53470f8c10f791c26082d5")!, timeoutInterval: Double.infinity)
         request.httpMethod = "GET"
@@ -219,7 +269,10 @@ class ViewController: UIViewController, UITableViewDelegate, SkeletonTableViewDa
         return 110
     }
     
-  
+    func tableView(_ tableView: UITableView, didBeginMultipleSelectionInteractionAt indexPath: IndexPath) {
+        self.lblLatestUpdates.isHidden = true;
+    }
+    
     func formatDateString(isoDateString: String) -> String? {
         // Create a DateFormatter to parse the ISO 8601 date string
         let isoDateFormatter = ISO8601DateFormatter()
@@ -231,6 +284,7 @@ class ViewController: UIViewController, UITableViewDelegate, SkeletonTableViewDa
             return nil
         }
 
+        
         // Create another DateFormatter to format the date to the desired output
         let displayDateFormatter = DateFormatter()
         displayDateFormatter.dateFormat = "dd MMM yy hh:mm a"
@@ -259,10 +313,8 @@ extension UIImageView {
         }.resume()
     }
     
-    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-            print("Selected item: \(item.title ?? "")")
-        }
+
     
-   
+
 
 }
